@@ -10,7 +10,7 @@
 | Idea | Identity Manager |
 | Tagline | One identity, two wallets, one shared on-chain state. |
 | Description | RomeID is a cross-VM identity manager built on Rome Protocol, allowing EVM and Solana users to link verified wallets to a shared on-chain profile and manage their identity from either wallet lane. |
-| GitHub repository | TODO — no repository published |
+| GitHub repository | [nhattung99/romeid](https://github.com/nhattung99/romeid) |
 | Live demo | TODO — no public deployment |
 | Contract address | `0xa0327391255c62be291b84caed99e4b82e69dfeb` |
 | Chain | Rome Hadrian, registry-resolved chain ID 200010 |
