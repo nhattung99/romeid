@@ -29,7 +29,7 @@ After separate approval for all smoke writes, use fresh funded test wallets, `RO
 
 Then repeat the browser script in ARENA_SUBMISSION.md with actual MetaMask and Phantom. Verify fresh synthetic provisioning and inspect failed/denied signatures. Map each actual EVM hash with `rome tx hadrian <hash>` / `rome_solanaTxForEvmTx`. Legacy Solana SDK responses have no Rome hash; retain the actual Solana explorer evidence and mark unmapped fields TODO.
 
-## Vercel (prepared, not published)
+## Vercel production demo
 
 Framework: Next.js. Root: repository root. Install: `npm ci`. Build: `npm run build`. Standard Node.js runtime compatible with Next 15 (local verification used Node 24). Set only `NEXT_PUBLIC_IDENTITY_ADDRESS` to the actual deployment; Hadrian infrastructure is generated from the pinned registry. Never put ROME_EVM_KEY, ROME_SOLANA_KEY or ALLOW_TESTNET_SPEND into Vercel. No application backend/private key is required. Public address configuration is generated at build time; rebuild after changing it. Publication requires separate explicit user approval.
 
@@ -42,5 +42,6 @@ Framework: Next.js. Root: repository root. Install: `npm ci`. Build: `npm run bu
 | Deployment UTC timestamp | 2026-11-07 03:43:05 UTC |
 | Actual gas fee | 11.99551750331449977 USDC testnet |
 | Git commit | TODO — workspace was not a Git repository at initialization |
-| Live frontend URL | TODO |
+| Live frontend URL | [romeid-green.vercel.app](https://romeid-green.vercel.app/) |
+| Frontend source revision | [`f79ec32`](https://github.com/nhattung99/romeid/commit/f79ec32) |
 | Real lane evidence | [Verified browser walkthrough](ARENA_SUBMISSION.md) |

@@ -48,6 +48,6 @@ An initial localhost preview timed out; explicit IPv4 loopback on port 3001 work
 | Actual rejected signatures, failed transaction / retry | TODO |
 | Rome receipt ↔ Solana settlement mapping | PASS for EVM create, propose and unlink. Phantom legacy response supplies a Solana signature only. |
 | Transfer/recovery with maximum wallet count on Rome | TODO |
-| Vercel deployed app browser smoke | TODO — publication approval |
+| Vercel production HTTP smoke | PASS — seven routes return 200 without authentication. The client bundle contains the verified Hadrian address, and the RPC allows requests from the hosted origin. Wallet writes were verified in the local browser walkthrough. |
 
 The browser walkthrough completed on Hadrian. The separate gated v1 harness in scripts/dual-lane.ts has not been run. Verified transaction links and screenshots are in ARENA_SUBMISSION.md.

@@ -11,7 +11,7 @@
 | Tagline | One identity, two wallets, one shared on-chain state. |
 | Description | RomeID is a cross-VM identity manager built on Rome Protocol, allowing EVM and Solana users to link verified wallets to a shared on-chain profile and manage their identity from either wallet lane. |
 | GitHub repository | [nhattung99/romeid](https://github.com/nhattung99/romeid) |
-| Live demo | TODO — no public deployment |
+| Live demo | [romeid-green.vercel.app](https://romeid-green.vercel.app/) |
 | Contract address | `0xa0327391255c62be291b84caed99e4b82e69dfeb` |
 | Chain | Rome Hadrian, registry-resolved chain ID 200010 |
 | Deployment hash | [0x2566717e…42de68a](https://via-hadrian.testnet.romeprotocol.xyz/tx/0x2566717e6dad7f81f2e1eb46d98a5b45af00792c53cddb057f4d50a4042de68a) |

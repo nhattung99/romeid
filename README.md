@@ -1,5 +1,7 @@
 # RomeID — Cross-VM Identity Manager
 
+[Live Hadrian demo](https://romeid-green.vercel.app/) · [Arena submission evidence](docs/ARENA_SUBMISSION.md)
+
 **One identity, two wallets, one shared on-chain state.**
 
 Local Next.js MVP for Rome Hadrian. One Solidity contract owns profiles and wallet relationships. MetaMask writes use `submitRomeTx`; Phantom uses the documented legacy `submitRomeTxSolanaLane`. Infrastructure comes from `@rome-protocol/registry` at build time.
@@ -65,4 +67,4 @@ Follow [DEPLOYMENT.md](docs/DEPLOYMENT.md). Deployment, funding, bridging, all r
 
 Vercel is prepared as a standard Next.js project: `npm ci`, `npm run build`, public identity address only. No private keys belong on Vercel. Review the remaining dependency advisories before public release; the project does not claim a clean audit.
 
-See [TEST_REPORT.md](docs/TEST_REPORT.md), [ARENA_SUBMISSION.md](docs/ARENA_SUBMISSION.md) and the [Hadrian profile screenshot](docs/screenshots/hadrian-identity-1-after-phantom-update.png). The public repository URL and hosted demo URL remain TODO.
+See [TEST_REPORT.md](docs/TEST_REPORT.md), [ARENA_SUBMISSION.md](docs/ARENA_SUBMISSION.md) and the [Hadrian profile screenshot](docs/screenshots/hadrian-identity-1-after-phantom-update.png).
