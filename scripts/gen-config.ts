@@ -1,0 +1,14 @@
+import 'dotenv/config';
+import { writeFileSync } from 'node:fs';
+import { getChain, listChains } from '@rome-protocol/registry';
+import { loadConfig } from '../lib/config.js';
+import { isAddress } from 'viem';
+const hadrian = listChains().find((c: {name:string}) => c.name === 'Rome Hadrian');
+if (!hadrian) throw new Error('Hadrian missing from registry');
+if (process.env.CHAIN_ID && Number(process.env.CHAIN_ID) !== hadrian.chainId) throw new Error('RomeID is Hadrian-testnet only');
+const cfg = loadConfig({ chainId: hadrian.chainId });
+const chain = getChain(cfg.chainId)!;
+const address = process.env.NEXT_PUBLIC_IDENTITY_ADDRESS || null;
+if (address && !isAddress(address)) throw new Error('Invalid NEXT_PUBLIC_IDENTITY_ADDRESS');
+writeFileSync(new URL('../lib/rome/config.generated.json',import.meta.url),JSON.stringify({...cfg,name:chain.name,solanaExplorer:chain.solana.explorerUrl,identityAddress:address},null,2)+'\n');
+console.log(`Registry config: ${chain.name} (${cfg.chainId}); identity ${address || 'not deployed'}`);

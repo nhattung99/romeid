@@ -1,0 +1,10 @@
+.env*
+.research/
+.rome-starter/
+.next/
+node_modules/
+artifacts/
+romeid-scaffold/
+deployments/*-pending.json
+docs/*-run.log
+*.tsbuildinfo

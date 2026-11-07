@@ -1,0 +1,11 @@
+import { it } from 'node:test';
+import assert from 'node:assert/strict';
+import { privateKeyToAccount } from 'viem/accounts';
+import { ed25519 } from '@noble/curves/ed25519';
+import { PublicKey } from '@solana/web3.js';
+import { challengeText,verifyEvmChallenge,verifySolanaChallenge,type Challenge } from '../lib/auth/challenge';
+const account=privateKeyToAccount(`0x${'11'.repeat(32)}`);
+const base=():Challenge=>({domain:'https://romeid.example',chainId:200010,contract:`0x${'22'.repeat(20)}`,identityId:'1',wallet:`evm:${account.address}`,action:'prove-possession',nonce:'ab'.repeat(32),expiresAt:Date.now()+120_000,binding:'epoch:1;sender:test'});
+it('verifies a real EIP-191 signature and rejects invalid signatures / expired messages',async()=>{const c=base();const sig=await account.signMessage({message:challengeText(c)});assert.ok(await verifyEvmChallenge(c,c,account.address,sig));assert.equal(await verifyEvmChallenge(c,c,account.address,`0x${'00'.repeat(65)}`),false);assert.equal(await verifyEvmChallenge(c,c,account.address,sig,c.expiresAt+1),false);});
+it('rejects replay in another domain, chain, identity, wallet, nonce, action or context',async()=>{const c=base(),sig=await account.signMessage({message:challengeText(c)});for(const field of ['domain','chainId','contract','identityId','wallet','action','nonce','binding'] as const){const changed={...c,[field]:field==='chainId'?1:'other'};assert.equal(await verifyEvmChallenge(c,changed,account.address,sig),false,field);}});
+it('verifies real Ed25519 ownership and rejects tampering or a different signer',()=>{const secret=new Uint8Array(32).fill(7),pub=ed25519.getPublicKey(secret),c={...base(),wallet:`solana:${new PublicKey(pub).toBase58()}`};const sig=ed25519.sign(new TextEncoder().encode(challengeText(c)),secret);assert.ok(verifySolanaChallenge(c,c,pub,sig));assert.equal(verifySolanaChallenge({...c,identityId:'2'},c,pub,sig),false);assert.equal(verifySolanaChallenge(c,c,ed25519.getPublicKey(new Uint8Array(32).fill(8)),sig),false);});

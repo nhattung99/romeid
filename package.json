@@ -1,0 +1,51 @@
+{
+  "name": "romeid",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "npm run gen-config && next dev --hostname 127.0.0.1",
+    "build": "npm run gen-config && next build",
+    "start": "next start",
+    "gen-config": "tsx scripts/gen-config.ts",
+    "typecheck": "npm run gen-config && tsc --noEmit",
+    "lint": "eslint app components lib/rome lib/wallets lib/auth tests scripts/gen-config.ts scripts/compile.ts scripts/deploy-identity.ts scripts/dual-lane.ts scripts/preflight.ts scripts/verify.ts",
+    "compile": "tsx scripts/compile.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "deploy": "tsx scripts/deploy-identity.ts",
+    "demo": "tsx scripts/dual-lane.ts",
+    "verify": "tsx scripts/verify.ts"
+  },
+  "dependencies": {
+    "@noble/curves": "1.9.7",
+    "@rome-protocol/registry": "git+https://github.com/rome-protocol/rome-registry.git#19b19751c2694b0925965bb6260f0c662bbfebb1",
+    "@rome-protocol/sdk": "git+https://github.com/rome-protocol/rome-sdk-ts.git#45193d8410e9e69af69f1f11859cdae5c1e4d61c",
+    "@solana/spl-token": "0.4.14",
+    "@solana/web3.js": "1.98.4",
+    "@wallet-standard/app": "1.1.0",
+    "buffer": "6.0.3",
+    "next": "15.5.29",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "viem": "2.57.16"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@types/node": "24.10.0",
+    "@types/react": "19.2.16",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "10.4.22",
+    "dotenv": "16.6.1",
+    "eslint": "9.39.1",
+    "ganache": "7.9.2",
+    "postcss": "8.5.15",
+    "solc": "0.8.26",
+    "tailwindcss": "3.4.17",
+    "tsx": "4.22.4",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.46.3"
+  }
+}

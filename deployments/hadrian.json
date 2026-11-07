@@ -1,0 +1,18 @@
+{
+  "chain": "Rome Hadrian",
+  "chainId": 200010,
+  "deployer": "0xBB97Ae918a92EaFE81304E1829eAcb0dA0c66E47",
+  "address": "0xa0327391255c62be291b84caed99e4b82e69dfeb",
+  "transactionHash": "0x2566717e6dad7f81f2e1eb46d98a5b45af00792c53cddb057f4d50a4042de68a",
+  "explorer": "https://via-hadrian.testnet.romeprotocol.xyz/tx/0x2566717e6dad7f81f2e1eb46d98a5b45af00792c53cddb057f4d50a4042de68a",
+  "compiler": "0.8.26+commit.8a97fa7a.Emscripten.clang",
+  "commit": null,
+  "status": "success",
+  "blockNumber": "519528274",
+  "deployedAt": "2026-11-07T03:43:05.000Z",
+  "runtimeBytecodeBytes": 8075,
+  "recordedAt": "2026-11-07T03:43:08.046Z",
+  "feeUSDC": "11.99551750331449977",
+  "approvedFeeUSDC": "12",
+  "testResults": "See docs/TEST_REPORT.md"
+}
